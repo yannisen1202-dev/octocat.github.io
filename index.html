@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROVME绒冕•至臻之旅 - 欧洲高端旅行专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+        }
+
+        :root {
+            /* 主色调（属土） */
+            --primary-dark: #7C6A5A;
+            --primary-medium: #9A7B4F;
+            --primary-light: #A86E35;
+            
+            /* 辅助色（属火） */
+            --accent-dark: #E27D60;
+            --accent-medium: #D4A373;
+            --accent-light: #F39C12;
+            
+            /* 中性色 */
+            --bg-light: #F8F5F0;
+            --text-dark: #5C4B3A;
+            --text-medium: #7C6A5A;
+            --text-light: #9A8C7C;
+            
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 导航栏样式 */
+        header {
+            background-color: var(--primary-dark);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--bg-light);
+            letter-spacing: 2px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-sub {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            color: var(--accent-medium);
+            margin-top: -5px;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--bg-light);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-light);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-medium);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--bg-light);
+        }
+
+        /* 各部分通用样式 */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            position: relative;
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-medium), var(--accent-light));
+        }
+
+        /* 英雄区域样式 */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(124, 106, 90, 0.7), rgba(154, 123, 79, 0.5)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            margin-top: 0;
+            color: var(--bg-light);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-medium);
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--accent-light);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(226, 125, 96, 0.4);
+        }
+
+        /* 目的地部分样式 */
+        .destinations-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .destination-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .destination-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .destination-card:hover .destination-image img {
+            transform: scale(1.05);
+        }
+
+        .destination-content {
+            padding: 25px;
+        }
+
+        .destination-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .destination-description {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .destination-meta {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(124, 106, 90, 0.1);
+            padding-top: 15px;
+            margin-top: 20px;
+        }
+
+        .destination-price {
+            font-weight: 700;
+            color: var(--accent-light);
+            font-size: 1.2rem;
+        }
+
+        .destination-country {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* 关于我们部分样式 */
+        #about {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary-medium));
+            color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-border {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--accent-medium);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        /* 联系表单样式 */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--accent-light);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(244, 156, 18, 0.1);
+            border-radius: 50%;
+        }
+
+        .contact-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-light);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.2);
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-light);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 300;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .image-border {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                padding: 50px 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    ROVME
+                    <span class="logo-sub">绒冕•至臻之旅</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#hero">首页</a></li>
+                    <li><a href="#destinations">目的地</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">探索欧洲极致之美</p>
+                <h1 class="hero-title">臻选英伦风情与北欧秘境</h1>
+                <p class="hero-description">ROVME绒冕为您精心策划英国、芬兰、挪威的至臻之旅，体验独特文化、壮丽自然与奢华住宿的完美融合。</p>
+                <a href="#destinations" class="btn">探索旅程</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 目的地部分 -->
+    <section id="destinations">
+        <div class="container">
+            <h2 class="section-title">精选目的地</h2>
+            <div class="destinations-container">
+                <!-- 英国 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="英国伦敦">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">英伦典雅之旅</h3>
+                        <p class="destination-description">探索伦敦的历史底蕴，感受剑桥牛津的学术氛围，体验苏格兰高地的壮丽风光，尽享英式下午茶与皇家礼仪。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥28,900起</span>
+                            <span class="destination-country">英国</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="英国爱丁堡">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">苏格兰高地探秘</h3>
+                        <p class="destination-description">穿越神秘苏格兰高地，探访古老城堡，品尝威士忌，沿着尼斯湖追寻传说中的水怪足迹。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥32,500起</span>
+                            <span class="destination-country">英国</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1534270804882-6b5048b5c023?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="英国巴斯">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">英格兰乡村风情</h3>
+                        <p class="destination-description">漫步科茨沃尔德迷人小镇，体验简·奥斯汀笔下的巴斯古城，感受纯正英式乡村生活的宁静与优雅。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥25,800起</span>
+                            <span class="destination-country">英国</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 芬兰 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1579033384275-3f5d60d5577c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="芬兰极光">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">北极光追寻之旅</h3>
+                        <p class="destination-description">入住玻璃穹顶屋，仰望绚烂极光，体验雪地摩托、哈士奇雪橇，感受拉普兰魔法般的冬季仙境。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥35,900起</span>
+                            <span class="destination-country">芬兰</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1574362841337-2d50dfc332b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="芬兰赫尔辛基">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">设计之都赫尔辛基</h3>
+                        <p class="destination-description">探索北欧设计精髓，参观世界级建筑与博物馆，体验芬兰桑拿文化，品味波罗的海美食。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥27,600起</span>
+                            <span class="destination-country">芬兰</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1516575334460-61e6b84156a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="芬兰湖区">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">千湖之国静谧之旅</h3>
+                        <p class="destination-description">畅游芬兰湖区，入住湖畔木屋，体验垂钓、划船、森林漫步，感受"每个人的权利"自然法则。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥29,800起</span>
+                            <span class="destination-country">芬兰</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 挪威 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="挪威峡湾">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">挪威峡湾奇观</h3>
+                        <p class="destination-description">乘坐游轮穿越壮丽峡湾，仰望布道石奇迹，体验世界上最美丽的火车路线，感受大自然鬼斧神工。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥38,500起</span>
+                            <span class="destination-country">挪威</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1580502417642-e7c51e45fa88?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="挪威特罗姆瑟">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">北极之门特罗姆瑟</h3>
+                        <p class="destination-description">探访北极首府，体验午夜太阳奇观，参观极地博物馆，搭乘缆车俯瞰山海相连的壮丽景色。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥33,200起</span>
+                            <span class="destination-country">挪威</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1580543604541-1d2198535eb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="挪威罗弗敦群岛">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">罗弗敦群岛渔村风情</h3>
+                        <p class="destination-description">漫步如画渔村，体验传统鳕鱼捕捞，攀登雷讷山，拍摄明信片般的风景，感受北极圈内独特生活方式。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥36,800起</span>
+                            <span class="destination-country">挪威</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1580548254596-1efd73b35e1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="挪威卑尔根">
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">卑尔根与世界遗产</h3>
+                        <p class="destination-description">探访汉萨同盟古码头，搭乘弗洛姆高山火车，徒步挪威最壮美山地路线，体验世界文化遗产的魅力。</p>
+                        <div class="destination-meta">
+                            <span class="destination-price">¥31,500起</span>
+                            <span class="destination-country">挪威</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们部分 -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">关于绒冕之旅</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>ROVME绒冕•至臻之旅成立于2010年，专注于提供高品质的欧洲深度旅行体验。我们的名字"绒冕"寓意着如绒般细腻的服务与如冕般尊贵的体验。</p>
+                    <p>我们的团队由资深旅行专家、当地文化向导和行程策划师组成，对英国、芬兰和挪威的文化、历史和自然景观有着深入的了解和独特的见解。</p>
+                    <p>我们坚信，真正的旅行不仅是参观景点，更是与当地文化深度连接、获得心灵启迪的过程。因此，我们精心设计每一条路线，确保您能体验到最地道、最难忘的旅程。</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">12+</div>
+                            <div class="stat-label">年经验</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5,000+</div>
+                            <div class="stat-label">满意客户</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">精选路线</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="旅行专家">
+                    <div class="image-border"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系表单 -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-details">
+                            <h3>地址</h3>
+                            <p>北京市朝阳区建国路88号SOHO现代城C座1806室</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-details">
+                            <h3>邮箱</h3>
+                            <p>info@rovme.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-details">
+                            <h3>电话</h3>
+                            <p>+86 10 8888 8888</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-details">
+                            <h3>工作时间</h3>
+                            <p>周一至周五: 9:00 - 18:00<br>周末: 10:00 - 16:00</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" placeholder="请输入您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" placeholder="请输入您的邮箱" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">电话</label>
+                        <input type="tel" id="phone" placeholder="请输入您的电话">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">您的旅行需求</label>
+                        <textarea id="message" rows="5" placeholder="请告诉我们您理想的旅行方式、预算和日期等信息" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">提交咨询</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ROVME绒冕•至臻之旅</h3>
+                    <p>为您提供英国、芬兰、挪威高端定制旅行服务，打造难忘的欧洲深度体验之旅。</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>目的地</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">英国旅行</a></li>
+                        <li><a href="#">芬兰旅行</a></li>
+                        <li><a href="#">挪威旅行</a></li>
+                        <li><a href="#">定制旅程</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>服务</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">私人定制</a></li>
+                        <li><a href="#">小团旅行</a></li>
+                        <li><a href="#">蜜月之旅</a></li>
+                        <li><a href="#">家庭旅行</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>帮助</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">旅行指南</a></li>
+                        <li><a href="#">预订须知</a></li>
+                        <li><a href="#">签证咨询</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ROVME绒冕•至臻之旅. 保留所有权利. | 旅行社业务经营许可证: L-BJ-CJ00156</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // 表单提交
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您的咨询！我们的旅行顾问将在24小时内联系您。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
